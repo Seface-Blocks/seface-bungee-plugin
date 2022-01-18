@@ -1,1 +1,4 @@
 chat-format: "&b&lGLOBAL&r {PLAYER} &d»&7 {CONTENT}&r"
+
+messages:
+  invalidMessage: "&7The message cannot be empty. &8(seface-bungee-plugin)&r"

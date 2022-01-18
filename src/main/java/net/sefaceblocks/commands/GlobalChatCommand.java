@@ -11,6 +11,7 @@ import static net.sefaceblocks.utils.Resources.*;
 
 public class GlobalChatCommand extends Command {
   private static final String messageFormat = getConfig().loadConfig().getString("chat-format");
+  private static final String invalidMessage = getConfig().loadConfig().getString("messages.invalidMessage");
 
   public GlobalChatCommand(String name) {
     super(name);
@@ -24,7 +25,11 @@ public class GlobalChatCommand extends Command {
     StringBuilder content = new StringBuilder();
     TextComponent message = new TextComponent();
 
-    if (args.length == 0) { return; }
+    if (args.length == 0) {
+      message.setText(SefaceUtils.replaceColorChar(invalidMessage));
+      player.sendMessage(message);
+      return;
+    }
 
     for (int i = 0; i < args.length; i++) {
       if (i > 0) { content.append(" "); }
