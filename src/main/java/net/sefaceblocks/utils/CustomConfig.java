@@ -40,12 +40,12 @@ public class CustomConfig {
   }
 
   @SneakyThrows
-  public Configuration loadConfig() {
+  public Configuration getConfig() {
     return ConfigurationProvider.getProvider(YamlConfiguration.class).load(this.file);
   }
 
   @SneakyThrows
   public void saveConfig() {
-    ConfigurationProvider.getProvider(YamlConfiguration.class).save(this.loadConfig(), this.file);
+    ConfigurationProvider.getProvider(YamlConfiguration.class).save(this.getConfig(), this.file);
   }
 }

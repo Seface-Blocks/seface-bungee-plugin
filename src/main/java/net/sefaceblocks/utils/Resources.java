@@ -3,9 +3,9 @@ package net.sefaceblocks.utils;
 import lombok.Getter;
 
 public class Resources {
-  @Getter private static CustomConfig config;
+  @Getter private static CustomConfig instance;
 
   public static void register() {
-    config = new CustomConfig("config.yml", true);
+    instance = new CustomConfig("config.yml", true);
   }
 }

@@ -10,11 +10,11 @@ import net.sefaceblocks.utils.SefaceUtils;
 import static net.sefaceblocks.utils.Resources.*;
 
 public class GlobalChatCommand extends Command {
-  private static final String messageFormat = getConfig().loadConfig().getString("chat-format");
-  private static final String invalidMessage = getConfig().loadConfig().getString("messages.invalidMessage");
+  private static final String messageFormat = getInstance().getConfig().getString("global-chat-format");
+  private static final String invalidMessage = getInstance().getConfig().getString("messages.invalidMessage");
 
-  public GlobalChatCommand(String name) {
-    super(name);
+  public GlobalChatCommand(String name, String permission) {
+    super(name, permission);
   }
 
   @Override
