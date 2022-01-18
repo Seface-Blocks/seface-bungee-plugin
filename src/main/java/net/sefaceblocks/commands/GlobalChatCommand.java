@@ -5,8 +5,13 @@ import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.sefaceblocks.utils.SefaceUtils;
+
+import static net.sefaceblocks.utils.Resources.*;
 
 public class GlobalChatCommand extends Command {
+  private static final String messageFormat = getConfig().loadConfig().getString("chat-format");
+
   public GlobalChatCommand(String name) {
     super(name);
   }
@@ -26,7 +31,11 @@ public class GlobalChatCommand extends Command {
       content.append(args[i]);
     }
 
-    message.setText("§b§lGLOBAL§r " + player.getDisplayName() + " §d»§7 " + content);
+    message.setText(
+      SefaceUtils.replaceColorChar(messageFormat)
+        .replace("{PLAYER}", player.getName())
+        .replace("{CONTENT}", content)
+    );
 
     ProxyServer.getInstance().broadcast(message);
   }
