@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="SefaceBungeePlugin:jar">
-    <output-path>$PROJECT_DIR$/../../../.Minecraft Servers/Bungee/plugins</output-path>
-    <root id="archive" name="SefaceBungeePlugin.jar">
-      <element id="module-output" name="SefaceBungeePlugin" />
-    </root>
-  </artifact>
-</component>

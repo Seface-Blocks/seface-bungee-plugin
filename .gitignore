@@ -1,0 +1,8 @@
+# Folders
+target/
+.idea/
+.vscode/
+build/
+__test__/
+
+# Files
