@@ -5,11 +5,17 @@ import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.api.plugin.TabExecutor;
 import net.sefaceblocks.utils.SefaceUtils;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 import static net.sefaceblocks.utils.Resources.*;
 
-public class GlobalTellCommand extends Command {
+public class GlobalTellCommand extends Command implements TabExecutor {
+  private static final ArrayList<String> EMPTY_TAB_COMPLETE = new ArrayList<>();
+
   private static final String messageFormat = getInstance().getConfig().getString("global-tell-format");
   private static final String invalidMessage = getInstance().getConfig().getString("messages.invalidMessage");
   private static final String invalidPlayer = getInstance().getConfig().getString("messages.invalidPlayer");
@@ -68,5 +74,23 @@ public class GlobalTellCommand extends Command {
 
     pSender.sendMessage(message);
     pRecipient.sendMessage(message);
+  }
+
+  @Override
+  public Iterable<String> onTabComplete(CommandSender sender, String[] args) {
+    ArrayList<String> playersList = new ArrayList<>();
+
+    if(args.length == 1) {
+      for (ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
+        if(player != sender) {
+          playersList.add(player.getName());
+
+        }
+      }
+
+      return playersList;
+    }
+
+    return EMPTY_TAB_COMPLETE;
   }
 }

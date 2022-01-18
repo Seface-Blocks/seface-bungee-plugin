@@ -1,5 +1,5 @@
 global-chat-format: "&b&lGlobal&r {PLAYER} &d»&7 {CONTENT}&r"
-global-tell-format: "&7{SENDER} → {RECIPIENT}&d:&7 {CONTENT}&r"
+global-tell-format: "&7{SENDER} → {RECIPIENT} &d»&7 {CONTENT}&r"
 
 messages:
   invalidMessage: "&7The message cannot be empty. &8(seface-bungee-plugin)&r"
