@@ -9,7 +9,6 @@ import net.md_5.bungee.api.plugin.TabExecutor;
 import net.sefaceblocks.utils.SefaceUtils;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 import static net.sefaceblocks.utils.Resources.*;
 
@@ -17,6 +16,7 @@ public class GlobalTellCommand extends Command implements TabExecutor {
   private static final ArrayList<String> EMPTY_TAB_COMPLETE = new ArrayList<>();
 
   private static final String messageFormat = getInstance().getConfig().getString("global-tell-format");
+  private static final String me = getInstance().getConfig().getString("messages.me");
   private static final String invalidMessage = getInstance().getConfig().getString("messages.invalidMessage");
   private static final String invalidPlayer = getInstance().getConfig().getString("messages.invalidPlayer");
   private static final String recipientIsSender = getInstance().getConfig().getString("messages.recipientIsSender");
@@ -72,8 +72,13 @@ public class GlobalTellCommand extends Command implements TabExecutor {
         .replace("{CONTENT}", content)
     );
 
-    pSender.sendMessage(message);
-    pRecipient.sendMessage(message);
+    pSender.sendMessage(
+      message.getText().replace(pSender.getName(), me)
+    );
+
+    pRecipient.sendMessage(
+      message.getText().replace(pRecipient.getName(), me)
+    );
   }
 
   @Override

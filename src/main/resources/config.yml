@@ -2,6 +2,7 @@ global-chat-format: "&b&lGlobal&r {PLAYER} &d»&7 {CONTENT}&r"
 global-tell-format: "&7{SENDER} → {RECIPIENT} &d»&7 {CONTENT}&r"
 
 messages:
+  me: "me"
   invalidMessage: "&7The message cannot be empty. &8(seface-bungee-plugin)&r"
   invalidPlayer: "&7You must specify a player to send a message. &8(seface-bungee-plugin)&r"
   recipientIsSender: "&7You cannot send a message to yourself. &8(seface-bungee-plugin)&r"

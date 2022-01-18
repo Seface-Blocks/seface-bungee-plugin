@@ -8,7 +8,7 @@ import net.sefaceblocks.commands.GlobalTellCommand;
 public class Register {
 
   public static void pluginCommands(Plugin plugin) {
-    ProxyServer.getInstance().getPluginManager().registerCommand(plugin, new GlobalChatCommand("gchat", null));
-    ProxyServer.getInstance().getPluginManager().registerCommand(plugin, new GlobalTellCommand("gtell", null));
+    ProxyServer.getInstance().getPluginManager().registerCommand(plugin, new GlobalChatCommand("gchat", "seface.command.gchat"));
+    ProxyServer.getInstance().getPluginManager().registerCommand(plugin, new GlobalTellCommand("gtell", "seface.command.gtell"));
   }
 }
